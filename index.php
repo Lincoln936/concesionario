@@ -130,7 +130,6 @@ $r = Request::get("r");
                                 <td><?php
                                     if ($turismo->getNuevo() == 1) {
                                         echo "Sí";
-                                    }else{
                                     } else {
                                         echo "No";
                                     }
