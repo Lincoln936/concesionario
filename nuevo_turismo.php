@@ -34,7 +34,7 @@ $bd = new DataBase();
         </div>
         <form action="phpvalidarvehiculo.php" method="POST" id="formulario">
             <h2>Datos del vehículo</h2>
-            <label for="Tipo">Tipo</label><input type="text" name="Tipo" value="" /><br/>
+            <label for="Tipo">Tipo</label><input type="text" name="Tipo" value=""/><br/>
             <label for="Modelo">Modelo</label><input type="text" name="Modelo" value="" /><br/>
             <label for="Motor">Motor</label><input type="text" name="Motor" value="" /><br/>
             <label for="Nuevo">Nuevo</label><input type="number" name="Nuevo" value="" /><br/>

@@ -103,7 +103,11 @@ $r = Request::get("r");
                                 <a href="?<?= $parametros->getParams(array("order" => "Precio desc")) ?>">&Del;</a>
                                 <a href="?<?= $parametros->getParams(array("order" => "Precio asc")) ?>">&Delta;</a>
                             </th>
-                            <!-- <th colspan="2">Acciones</th> -->
+                            <?php
+                            if ($sesion->isLogged()) {
+                                ?>
+                                <th colspan="2">Acciones</th>
+                            <?php } ?>
                         </tr>
                     </thead>
                     <tfoot>
@@ -127,6 +131,7 @@ $r = Request::get("r");
                                     if ($turismo->getNuevo() == 1) {
                                         echo "Sí";
                                     }else{
+                                    } else {
                                         echo "No";
                                     }
                                     ?></td>
@@ -134,9 +139,10 @@ $r = Request::get("r");
                                 <td><?php
                                     if ($turismo->getUsado() == 1) {
                                         echo "Sí";
-                                    }else{
+                                    } else {
                                         echo "No";
-                                    } ?></td>
+                                    }
+                                    ?></td>
                                 <td><?= $turismo->getKilometros() ?> km</td>
                                 <td><?php
                                     $dni = $turismo->getDni();
@@ -149,13 +155,21 @@ $r = Request::get("r");
                                     echo $r[0]["Nombre"];
                                     ?></td>
                                 <td><?= $turismo->getPrecio() ?> euros</td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
+                                <?php
+                                if ($sesion->isLogged()) {
+                                    ?>
+                                    <td>
+                                        Borrar<a href='phpdelete.php?ID=<?= $turismo->getID() ?>'></a><br/>
+                                        Editar<a href='viewedit.php?ID=<?= $turismo->getID() ?>'></a>
+                                    </td>
+                                <?php }?>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-    </body>
-</html>
-<?php
-$bd->closeConnection();
+        </body>
+    </html>
+    <?php
+    $bd->closeConnection();    

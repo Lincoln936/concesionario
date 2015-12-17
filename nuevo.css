@@ -9,7 +9,7 @@ body{
 #contenedor{
     margin: 0 auto;
     width: 89.1%;
-    height: 2100px;
+    height: 643px;
     background-color: dimgray;
 }
 #cabecera{
@@ -44,6 +44,6 @@ body{
 }
 
 #formulario{
-    margin-left: 500px;
+    margin-left: 20px;
     margin-top: 40px;
 }
